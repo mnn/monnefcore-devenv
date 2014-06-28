@@ -1,3 +1,5 @@
+apply plugin: 'scala'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -15,7 +17,6 @@ buildscript {
     }
 }
 
-apply plugin: 'scala'
 apply plugin: 'forge'
 
 version = "bash get_version.bash".execute().text
@@ -52,3 +53,8 @@ jar.archiveName = "${jar.baseName}_$version.${jar.extension}"
 // joint compilation
 sourceSets.main.scala.srcDir "src/main/java"
 sourceSets.main.java.srcDirs = []
+
+dependencies {
+    compile "junit:junit:4.11"
+    testCompile "junit:junit:4.11"
+}
